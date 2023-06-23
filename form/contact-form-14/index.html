@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Apply for Arya Mitra</title>
+  </head>
+  <body>
+  
+
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 mr-auto">
+          <h3 class="mb-3">Apply for Arya Mitra</h3>
+        </div>
+
+        <div class="col-md-6">
+          <div class="box">
+            <h3 class="heading">Fill the details.</h3>
+            <form class="mb-5" action="https://api.sheetmonkey.io/form/jrJZzc1Y2eFQ53Dy5Tt6wq" method="post">
+              <div class="row">
+                
+                <div class="col-md-12 form-group">
+                  <label for="name" class="col-form-label">Name of FPO *</label>
+                  <input type="text" class="form-control" name="Name of FPO" id="name" placeholder="Enter the name of the FPO">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="city" class="col-form-label">City *</label>
+                  <input type="text" class="form-control" name="City" id="city" placeholder="Your city">
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="state" class="col-form-label">State *</label>
+                  <input type="text" class="form-control" name="State" id="state" placeholder="Your state">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="name_of_requester" class="col-form-label">Name of Requester *</label>
+                  <input type="text" class="form-control" name="Name of Requester" id="name_of_requester" placeholder="Name of the requester">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="phone" class="col-form-label">Phone Number *</label>
+                  <input type="text" class="form-control" name="Phone Number" id="phone" placeholder="Enter the phone number of the requester">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="designation" class="col-form-label">Designation of the Requester *</label>
+                  <input type="text" class="form-control" name="Designation of the Requester" id="designation" placeholder="Enter the designation of the requester">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="amount" class="col-form-label">Amount of the loan (in lakhs) * &nbsp;&nbsp;<strong><span id="amount_value"></span> lakhs</strong></label>
+                  <input type="range" class="form-control" name="Amount of the loan (in lakhs)" id="amount" min="5" max="25">
+                  <!-- <p>Value: <span id="amount_value"></span></p> -->
+                </div>
+              </div>
+              <input type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
+              <div class="row">
+                <div class="col-md-12">
+                  <input type="submit" value="Submit" class="submit-btn btn btn-block btn-primary rounded-0 py-2 px-4">
+                  <span class="submitting"></span>
+                </div>
+              </div>
+            </form>
+
+            <div id="form-message-warning mt-4"></div> 
+            <div id="form-message-success">
+              Your message was sent, thank you!
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+    
+    
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <!-- <script src="js/main.js"></script> -->
+
+    <script>
+      var slider = document.getElementById("amount");
+      var output = document.getElementById("amount_value");
+      output.innerHTML = slider.value;
+      
+      slider.oninput = function() {
+        output.innerHTML = this.value;
+      }
+    </script>
+
+  </body>
+</html>
