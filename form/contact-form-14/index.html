@@ -25,52 +25,66 @@
       <div class="row">
         <div class="col-md-5 mr-auto">
           <h3 class="mb-3">Apply for Arya Mitra</h3>
+          <h5>Unlock Your Business Potential with AryaMitra Working Capital Loan</h5>
+          <p>Boost your growth with AryaMitra's flexible and competitive financial solutions.</p>
+          <p>As India's largest warehouse services provider, we offer loans from 5 lacs to 50 lacs, tailored for your unique needs.</p>
+          <p>Fill in our form, and our team will connect swiftly.</p>
         </div>
 
         <div class="col-md-6">
           <div class="box">
-            <h3 class="heading">Fill the details.</h3>
+            <!-- <h3 class="heading">Fill the details.</h3> -->
             <form class="mb-5" action="https://api.sheetmonkey.io/form/jrJZzc1Y2eFQ53Dy5Tt6wq" method="post">
               <div class="row">
-                
                 <div class="col-md-12 form-group">
-                  <label for="name" class="col-form-label">Name of FPO *</label>
-                  <input type="text" class="form-control" name="Name of FPO" id="name" placeholder="Enter the name of the FPO">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <label for="city" class="col-form-label">City *</label>
-                  <input type="text" class="form-control" name="City" id="city" placeholder="Your city">
-                </div>
-                <div class="col-md-6 form-group">
-                  <label for="state" class="col-form-label">State *</label>
-                  <input type="text" class="form-control" name="State" id="state" placeholder="Your state">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 form-group">
-                  <label for="name_of_requester" class="col-form-label">Name of Requester *</label>
-                  <input type="text" class="form-control" name="Name of Requester" id="name_of_requester" placeholder="Name of the requester">
+                  <label for="name" class="col-form-label">Name of FPO</label>
+                  <input type="text" class="form-control" name="Name of FPO" id="name" placeholder="Enter the name of your FPO">
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12 form-group">
                   <label for="phone" class="col-form-label">Phone Number *</label>
-                  <input type="text" class="form-control" name="Phone Number" id="phone" placeholder="Enter the phone number of the requester">
+                  <input type="tel" class="form-control" name="Phone Number" id="phone" pattern="[0-9]{10}" placeholder="Enter the phone number of the borrower" required>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12 form-group">
-                  <label for="designation" class="col-form-label">Designation of the Requester *</label>
-                  <input type="text" class="form-control" name="Designation of the Requester" id="designation" placeholder="Enter the designation of the requester">
+                  <label for="pincode" class="col-form-label">Pincode</label>
+                  <input type="text" class="form-control" name="Pincode" id="pincode" placeholder="Your pincode">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="city" class="col-form-label">City</label>
+                  <input type="text" class="form-control" name="City" id="city" placeholder="Your city" readonly>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="state" class="col-form-label">State</label>
+                  <input type="text" class="form-control" name="State" id="state" placeholder="Your state" readonly>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="name_of_borrower" class="col-form-label">Name of Borrower</label>
+                  <input type="text" class="form-control" name="Name of Borrower" id="name_of_borrower" placeholder="Name of the borrower">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="turnover" class="col-form-label">Turnover (in lakhs)</label>
+                  <select class="form-control" name="Turnover" id="turnover">
+                    <option value="">-----</option>
+                    <option value="Less than 30 lakhs">Less than 30 lakhs</option>
+                    <option value="More than 30 lakhs">More than 30 lakhs</option>
+                    <option value="More than 50 lakhs">More than 50 lakhs</option>
+                    <option value="More than 1 crore">More than 1 crore</option>
+                  </select>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12 form-group">
                   <label for="amount" class="col-form-label">Amount of the loan (in lakhs) * &nbsp;&nbsp;<strong><span id="amount_value"></span> lakhs</strong></label>
-                  <input type="range" class="form-control" name="Amount of the loan (in lakhs)" id="amount" min="5" max="25">
-                  <!-- <p>Value: <span id="amount_value"></span></p> -->
+                  <input type="range" class="form-control" name="Amount of the loan (in lakhs)" id="amount" min="5" max="50">
                 </div>
               </div>
               <input type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
@@ -81,8 +95,9 @@
                 </div>
               </div>
             </form>
+            <a href="./thank-you.html">Thank you</a>
 
-            <div id="form-message-warning mt-4"></div> 
+            <div id="form-message-warning mt-4"></div>
             <div id="form-message-success">
               Your message was sent, thank you!
             </div>
@@ -101,11 +116,30 @@
 
     <script>
       var slider = document.getElementById("amount");
+      var pincode = document.getElementById("pincode");
       var output = document.getElementById("amount_value");
       output.innerHTML = slider.value;
       
       slider.oninput = function() {
         output.innerHTML = this.value;
+      }
+
+      pincode.onchange = function() {
+        if(this.value.length == 6) {
+          $.ajax({
+            url: "https://api.postalpincode.in/pincode/" + this.value,
+            type: "GET",
+            success: function(data) {
+              data = data[0]
+
+              if(data['Status'] == 'Success' && data['PostOffice'].length > 0) {
+                  data = data['PostOffice'][0]
+                  document.getElementById("city").value = data['District'];
+                  document.getElementById("state").value = data['State'];
+                }
+            }
+          });
+        }
       }
     </script>
 

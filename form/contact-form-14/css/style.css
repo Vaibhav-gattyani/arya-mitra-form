@@ -31,6 +31,24 @@ h3 {
   font-weight: 700;
   color: #fff; }
 
+h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #fff;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid white;
+}
+
 .form-control {
   border: none;
   border: 1px solid #ccc;
