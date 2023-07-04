@@ -1,0 +1,11 @@
+pipelines:
+  default:
+    - step:
+        name: Sync GitHub Mirror
+        image: alpine/git:latest
+        clone:
+          enabled: false
+        script:
+          - git clone --bare git@bitbucket.org:arya-tech/arya-mitra-form.git
+          - cd arya-mitra-form.git
+          - git push --mirror git@github.com:Vaibhav-gattyani/arya-mitra-form.git
